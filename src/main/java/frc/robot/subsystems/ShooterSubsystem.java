@@ -16,5 +16,4 @@ public class ShooterSubsystem  extends SubsystemBase{
     shooterMotor.set(speed);
     }
 
-
 }
