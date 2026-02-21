@@ -31,7 +31,7 @@ import frc.robot.Constants.OIConstants;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.ElevatorSubsystem;
 import frc.robot.subsystems.ShooterSubsystem;
-import frc.robot.subsystems.IntakeFloorSubsystem;
+import frc.robot.subsystems.IntakeSnakeSubsystem;
 import frc.robot.subsystems.IntakePivotSubsystem;
 import frc.robot.subsystems.FeederSubsystem;
 import frc.robot.subsystems.HookSubsystem;
@@ -47,7 +47,7 @@ public class RobotContainer {
   private final DriveSubsystem m_robotDrive = new DriveSubsystem();
   private final ShooterSubsystem m_robotShoot = new ShooterSubsystem();
   private final ElevatorSubsystem m_robotElevate = new ElevatorSubsystem();
-  private final IntakeFloorSubsystem m_robotIntakeFloor = new IntakeFloorSubsystem();
+  private final IntakeSnakeSubsystem m_robotIntakeSnake = new IntakeSnakeSubsystem();
   private final IntakePivotSubsystem m_robotIntakePivot = new IntakePivotSubsystem();
   private final HookSubsystem m_robotHook = new HookSubsystem();
   private final FeederSubsystem m_robotFeeder = new FeederSubsystem();
@@ -102,8 +102,7 @@ public class RobotContainer {
 
     m_driverController.rightTrigger().whileTrue(runEnd(() -> m_robotShoot.shooterSet(1), () -> m_robotShoot.shooterSet(0)));
     m_driverController.rightTrigger().whileTrue(runEnd(() -> shootBall(), () -> m_robotFeeder.feederSet(0))); // we need to add delay
-    m_operatorController.leftTrigger().whileTrue(runEnd(() -> m_robotIntakeFloor.intakeFloor(1), () -> m_robotIntakeFloor.intakeFloor(0)));
-    //pivots need to be absolute encoderssS
+    m_operatorController.leftTrigger().whileTrue(runEnd(() -> m_robotIntakeSnake.intakeSnake(1), () -> m_robotIntakeSnake.intakeSnake(0)));
     m_operatorController.povUp().whileTrue(runEnd(() -> m_robotIntakePivot.intakePivotUp(-0.25), () -> m_robotIntakePivot.intakePivotUp(0)));
     m_operatorController.povDown().whileTrue(runEnd(() -> m_robotIntakePivot.intakePivotDown(-0.25), () -> m_robotIntakePivot.intakePivotDown(0)));
     m_operatorController.a().whileTrue(runEnd(() -> m_robotElevate.elevate(0.25), () -> m_robotElevate.elevate(0)));
