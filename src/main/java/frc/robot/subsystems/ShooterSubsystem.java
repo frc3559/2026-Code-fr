@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class ShooterSubsystem  extends SubsystemBase {
     private final SparkFlex shooterMotor1 = new SparkFlex(21, MotorType.kBrushless);
-    private final SparkFlex shooterMotor2 = new SparkFlex(21, MotorType.kBrushless);
+    private final SparkFlex shooterMotor2 = new SparkFlex(23, MotorType.kBrushless);
     private RelativeEncoder shooterEncoder1;
     private RelativeEncoder shooterEncoder2;
     private final double minSpeed = .95; //Minimum speed for shooters to run for isReady to return true, tolerance is within .05 of nominal shooter speed

@@ -11,12 +11,12 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class HookSubsystem extends SubsystemBase {
     public SparkMax hook;
-    public static final int  kHookMotorCanId = 25;
+    public static final int  kHookMotorCanId = 27;
 
     public HookSubsystem() {
         hook = new SparkMax(kHookMotorCanId, MotorType.kBrushless);
         SoftLimitConfig hookLimitConfig = new SoftLimitConfig(); //The soft limit code should stop the motor when it hits one of the specified values.
-        hookLimitConfig.forwardSoftLimit(100); //We do not know whether the limit value is degrees or rotations
+        hookLimitConfig.forwardSoftLimit(100); //We do not know whether the limit value is radians or rotations
         hookLimitConfig.reverseSoftLimit(0); //These lines make no forward and reverse limits. tweak values based on testing.
         SparkMaxConfig hookConfig = new SparkMaxConfig();
         hookConfig.apply(hookLimitConfig); //applies the hooklimitconfig's limits to the spark max config called hookconfig

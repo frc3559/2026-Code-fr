@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class ElevatorSubsystem extends SubsystemBase {
-    private final SparkMax climberElevatorMotor = new SparkMax(26, MotorType.kBrushless);
+    private final SparkMax climberElevatorMotor = new SparkMax(28, MotorType.kBrushless);
     RelativeEncoder climberElevatorEncoder;
 
     public void encodersubSystems() {

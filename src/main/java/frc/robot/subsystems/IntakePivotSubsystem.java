@@ -19,7 +19,7 @@ public class IntakePivotSubsystem extends SubsystemBase {
     public IntakePivotSubsystem() {
         intakePivot = new SparkMax(kIntakePivotMotorCanId, MotorType.kBrushless);
         SoftLimitConfig pivotLimitConfig = new SoftLimitConfig(); //The soft limit code should stop the motor when it hits one of the specified values.
-        pivotLimitConfig.forwardSoftLimit(100); //We do not know whether the limit value is degrees or rotations
+        pivotLimitConfig.forwardSoftLimit(100); //We do not know whether the limit value is radians or rotations 
         pivotLimitConfig.reverseSoftLimit(0); //These lines make no forward and reverse limits. tweak values based on testing.
         SparkMaxConfig pivotConfig = new SparkMaxConfig();
         pivotConfig.apply(pivotLimitConfig); //applies the pivotlimitconfig's limits to the spark max config called pivotconfig
