@@ -26,6 +26,7 @@ public class HookSubsystem extends SubsystemBase {
     public void hookOn(double speed) {
         hook.set(speed);
     }
+    //do we really need two functions to do the same thing
     public void hookOff(double speed) {
         hook.set(speed);
     }

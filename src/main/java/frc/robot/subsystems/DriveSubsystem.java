@@ -4,6 +4,8 @@
 
 package frc.robot.subsystems;
 
+import com.pathplanner.lib.config.RobotConfig;
+
 import edu.wpi.first.hal.FRCNetComm.tInstances;
 import edu.wpi.first.hal.FRCNetComm.tResourceType;
 import edu.wpi.first.hal.HAL;
@@ -102,7 +104,25 @@ public class DriveSubsystem extends SubsystemBase {
         },
         pose);
   }
+  
+  /**
+  //necessary function for PathPlanner. Untested.
+public ChassisSpeeds getChassisSpeeds() {
+        // Get the current measured states from each individual swerve module
+        SwerveModuleState[] measuredStates = new SwerveModuleState[] {
+            m_frontLeft.getState(),
+            m_frontRight.getState(),
+            m_rearLeft.getState(),
+            m_rearRight.getState()
+        };
+        
+  SwerveDriveKinematics getRobotSpeed = new SwerveDriveKinematics();
 
+        ChassisSpeeds getSpeed = getRobotSpeed.toChassisSpeeds(measuredStates);
+        // Perform forward kinematics to convert module states to chassis speeds
+        return getSpeed;
+    }
+    */
   /**
    * Method to drive the robot using joystick info.
    *
@@ -185,4 +205,6 @@ public class DriveSubsystem extends SubsystemBase {
   public double getTurnRate() {
     return m_gyro.getRate(IMUAxis.kZ) * (DriveConstants.kGyroReversed ? -1.0 : 1.0);
   }
+  
 }
+  
